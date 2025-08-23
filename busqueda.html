@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Búsqueda SIC</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: #f2f2f2;
+      border-bottom: 2px solid #ccc;
+      flex-wrap: wrap;
+    }
+    header img {
+      height: 60px;
+      max-width: 100%;
+    }
+    nav {
+      background: #0066cc;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .search-container {
+      padding: 20px;
+    }
+    .search-box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+    .search-box h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #444;
+    }
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+    .form-group label {
+      flex: 1 1 100%;
+      font-size: 14px;
+      color: #333;
+    }
+    .form-group input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #999;
+      border-radius: 3px;
+      min-width: 180px;
+    }
+    .form-group button {
+      background: #0066cc;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 3px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .form-group button:hover {
+      background: #004c99;
+    }
+    .links {
+      margin-top: 10px;
+    }
+    .links a {
+      margin-right: 15px;
+      font-size: 13px;
+      text-decoration: none;
+      color: #0066cc;
+    }
+    footer {
+      margin-top: 30px;
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+      margin: 0 5px;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        font-size: 13px;
+        padding: 10px;
+      }
+      .form-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .form-group button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+      .search-container {
+        padding: 10px;
+      }
+      nav {
+        font-size: 12px;
+      }
+      .search-box h3 {
+        font-size: 14px;
+      }
+      footer {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <img src="logo_ind.png" alt="Logo SIC">
+    </div>
+    <div>
+      <img src="logo_min.png" width="250px" alt="Logo MinTIC">
+    </div>
+  </header>
+
+  <nav>
+    <a href="busqueda.html">INICIO ></a> Búsqueda de solicitudes de Patente/Modelo de Utilidad/PCT/Esquemas de Trazado
+  </nav>
+
+  <div class="search-container">
+    <p>Introduzca el número de expediente de la solicitud para realizar una búsqueda simple.<br></p>
+
+    <div class="search-box">
+      <h3>Criterio de búsqueda</h3>
+      <div class="form-group">
+        <label for="expediente">Número de identificacion o expediente</label>
+        <input type="text" id="expediente" name="expediente">
+        <button onclick="buscar()">Buscar</button>
+      </div>
+      <div class="links">
+        <a href="#">Limpiar</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Carrera 13 No. 27 – 00 Piso 3 PBX: (601) 587 00 00. Contact center: (601) 592 04 00 Línea gratuita nacional 01 8000 910165<br>
+    www.sic.gov.co - e-mail: contactenos@sic.gov.co - Bogotá D.C. - Colombia.<br>
+    <a href="#">Política de privacidad</a> | <a href="#">Política editorial</a> | <a href="#">Créditos</a>
+  </footer>
+  <script>
+    document.getElementById('expediente').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+               window.location.href = 'resultado.html';
+            }
+        });
+    function buscar() {
+      const num_expediente = document.getElementById('expediente').value;
+      if (num_expediente.trim() == "45540581" || num_expediente.trim() =="NC2025/0000342") {
+              window.location.href = 'resultado.html';
+        }
+          else{
+            alert('Número de identificacion o expediente no encontrado. Por favor, intente con otro número.');
+          }
+    }
+  </script>
+</body>
+</html>
